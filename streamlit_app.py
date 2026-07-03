@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import os
 import json
+from speed_insights import inject_speed_insights
 
 # ==========================================
 # 1. PAGE CONFIGURATION & HOLOGRAPHIC THEME
@@ -13,6 +14,13 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# ==========================================
+# 2. VERCEL SPEED INSIGHTS INTEGRATION
+# ==========================================
+# Inject Vercel Speed Insights for performance monitoring
+# This tracks web vitals and performance metrics when deployed on Vercel
+inject_speed_insights()
 
 st.markdown("""
     <style>
@@ -31,7 +39,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 2. SYSTEM ARCHITECTURE & STATE MANAGEMENT
+# 3. SYSTEM ARCHITECTURE & STATE MANAGEMENT
 # ==========================================
 if 'sovereign_auth' not in st.session_state:
     st.session_state.sovereign_auth = False
@@ -52,7 +60,7 @@ st.sidebar.info(
 )
 
 # ==========================================
-# 3. CORE OPERATIONAL FUNCTIONS
+# 4. CORE OPERATIONAL FUNCTIONS
 # ==========================================
 def verify_system_manifest():
     with st.spinner("Executing System Manifest Hard Overwrite..."):
@@ -72,7 +80,7 @@ def sync_data_infrastructure():
         return "Bi-directional sync complete: Snowflake 🔄 Google Sheets 🔄 M365 Asset Vault."
 
 # ==========================================
-# 4. INTERFACE & DASHBOARD LAYOUT
+# 5. INTERFACE & DASHBOARD LAYOUT
 # ==========================================
 st.title("⚡ QUANTUM SOVEREIGN LOGISTICS CORP")
 st.subheader("EVE HEI — Sovereign Agent Node v1010")

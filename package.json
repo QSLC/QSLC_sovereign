@@ -1,0 +1,9 @@
+{
+  "name": "qslc-sovereign",
+  "version": "1.0.0",
+  "description": "QSLC Sovereign Core - EVE HEI",
+  "private": true,
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
