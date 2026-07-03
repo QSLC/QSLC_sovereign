@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import os
 import json
+from streamlit.components.v1 import html
 
 # ==========================================
 # 1. PAGE CONFIGURATION & HOLOGRAPHIC THEME
@@ -29,6 +30,14 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
+# ==========================================
+# VERCEL WEB ANALYTICS INTEGRATION
+# ==========================================
+# Load and inject Vercel Analytics tracking script
+with open("vercel_analytics.html") as f:
+    analytics_script = f.read()
+    html(analytics_script)
 
 # ==========================================
 # 2. SYSTEM ARCHITECTURE & STATE MANAGEMENT
