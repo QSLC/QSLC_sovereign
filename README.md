@@ -20,7 +20,7 @@ This is a modern Python application with:
 
 ```bash
 # Clone the repository
-git clone https://github.com/whiteantwan58-tech/QSLC_sovereign.git
+git clone https://github.com/QSLC/QSLC_sovereign.git
 cd QSLC_sovereign
 
 # Install dependencies
@@ -56,7 +56,7 @@ flake8 . --statistics
 
 ### GitHub Pages Deployment
 - Automatic deployment on push to main
-- URL: https://whiteantwan58-tech.github.io/QSLC_sovereign/
+- URL: Not currently used as the canonical public deployment. Use https://qslc-hei.com for the production customer-facing site.
 
 ## Project Structure
 
