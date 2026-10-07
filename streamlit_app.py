@@ -55,21 +55,22 @@ st.sidebar.info(
 # 3. CORE OPERATIONAL FUNCTIONS
 # ==========================================
 def verify_system_manifest():
-    with st.spinner("Executing System Manifest Hard Overwrite..."):
-        time.sleep(1.5)
+    with st.spinner("Initializing public-safe demonstration state..."):
+        time.sleep(0.5)
         st.session_state.sovereign_auth = True
 
 def fetch_psi_token_data():
-    if st.session_state.offline_mode:
-        return {"status": "Cached", "balance": "1,000,000 PSI", "network": "Solana Local Vault"}
-    else:
-        return {"status": "Live", "balance": "1,245,612 PSI", "network": "Solana Mainnet-Beta"}
+    return {
+        "status": "UNVERIFIED_DEMO",
+        "balance": "Not loaded",
+        "network": "Use qslc-hei.com/#psi for public verification"
+    }
 
 def sync_data_infrastructure():
-    if st.session_state.offline_mode:
-        return "Sync deferred. Data preserved in localized hardware vault."
-    else:
-        return "Bi-directional sync complete: Snowflake 🔄 Google Sheets 🔄 M365 Asset Vault."
+    return (
+        "DEMO ONLY — no provider mutation was executed. "
+        "Authenticated provider connections and evidence are required before a sync can be marked complete."
+    )
 
 # ==========================================
 # 4. INTERFACE & DASHBOARD LAYOUT
@@ -79,14 +80,14 @@ st.subheader("EVE HEI — Sovereign Agent Node v1010")
 st.markdown("---")
 
 if not st.session_state.sovereign_auth:
-    st.warning("⚠️ Identity verification required. Initialize core system manifest.")
+    st.warning("⚠️ Demo initialization required. This public interface does not verify identity.")
     col1, col2 = st.columns([1, 2])
     with col1:
-        if st.button("WELD SYSTEM IDENTITY & INITIALIZE AGENT"):
+        if st.button("INITIALIZE PUBLIC DEMO"):
             verify_system_manifest()
             st.rerun()
 else:
-    st.success("🔒 Sovereign Identity Confirmed. Agent Operating Under Autonomous Command.")
+    st.success("🧪 Public-safe demonstration initialized. No identity or provider authorization has been asserted.")
     
     st.subheader("📊 Asset Management & PSI Token Ledger")
     token_metrics = fetch_psi_token_data()
@@ -107,9 +108,9 @@ else:
     with c1:
         st.markdown("<div class='status-box'>", unsafe_allow_html=True)
         st.markdown("### Cloud & Enterprise Pipelines")
-        st.write("- **Snowflake Core:** Active Data Warehouse Streaming")
-        st.write("- **Google Sheets:** Real-time Operational Manifest")
-        st.write("- **Microsoft 365 environment:** Active Security Vault Sync")
+        st.write("- **Snowflake Core:** Connection state not asserted in this public demo")
+        st.write("- **Google Sheets:** Connection state not asserted in this public demo")
+        st.write("- **Microsoft 365:** Connection state not asserted in this public demo")
         st.markdown("</div>", unsafe_allow_html=True)
         
         if st.button("TRIGGER PIPELINE RECONCILIATION"):
@@ -119,9 +120,9 @@ else:
     with c2:
         st.markdown("<div class='status-box'>", unsafe_allow_html=True)
         st.markdown("### Agent Operational Objectives")
-        st.write("1. **Autonomous Asset Tracking:** Monitoring real-time liquidity changes.")
-        st.write("2. **Guardrail Override:** Enforcing localized processing protocols.")
-        st.write("3. **Edge Resilience:** Maintaining persistent logs during network disconnects.")
+        st.write("1. **Evidence-Gated Tracking:** Load only source-backed operational values.")
+        st.write("2. **Governed Automation:** Provider permissions and evidence gates remain controlling.")
+        st.write("3. **Edge Resilience:** Preserve local logs without claiming remote synchronization.")
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("---")
@@ -129,6 +130,6 @@ else:
     command_input = st.text_input("Issue Direct Command Override to EVE HEI Core:")
     if command_input:
         st.code(
-            f"Executing local system bypass for command: '{command_input}'...\n[SUCCESS] Operation completed locally.",
-            language="bash"
+            f"DEMO INPUT RECEIVED: {command_input}\nNO EXECUTION PERFORMED — connect an authorized command bus before enabling actions.",
+            language="text"
         )
